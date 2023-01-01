@@ -1,29 +1,26 @@
 package com.example.ecomerce.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Entity
 @Data
-public class PesananLog implements Serializable {
+public class Keranjang implements Serializable {
     @Id
     private String id;
     @JoinColumn
     @ManyToOne
-    private Pesanan pesanan;
+    private Produk produk;
     @JoinColumn
     @ManyToOne
     private Pengguna pengguna;
-    private Integer logType;
-    private String longMessage;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date waktu;
+    private Double kuatittas;
+    private BigDecimal harga;
+    private BigDecimal jumlah;
 }
